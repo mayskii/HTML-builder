@@ -21,3 +21,9 @@ rl.on('line', (input) => {
         writeStream.write(input + '\n')
     }
 })
+
+process.on('SIGINT', () => {
+    console.log('Goodbye! Have a good day');
+    rs.close();
+    process.exit();
+})
