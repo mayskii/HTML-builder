@@ -18,7 +18,9 @@ async function displayFileInfo() {
 
                 const fileSize = (fileInfo.size / 1024).toFixed(3);
 
-                console.log(`${file.name} - ${fileExtension} - ${fileSize}kb`);
+                const fileName = path.basename(file.name, path.extname(file.name));
+
+                console.log(`${fileName} - ${fileExtension} - ${fileSize}kb`);
             }
         }
     } catch (error) {

@@ -14,7 +14,6 @@ console.log('Welcome! Enter your message please...');
 
 rl.on('line', (input) => {
     if (input.trim().toLowerCase() === 'exit'){
-        console.log('Goodbye! Have a good day!');
         rl.close();
         process.exit();
     } else {
@@ -23,7 +22,10 @@ rl.on('line', (input) => {
 })
 
 process.on('SIGINT', () => {
-    console.log('Goodbye! Have a good day');
-    rs.close();
+    rs.close(); 
+});
+
+rl.on('close', () => {
+    console.log('Goodbye! Have a good day!');
     process.exit();
-})
+});
